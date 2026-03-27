@@ -5,23 +5,7 @@ n = int(input("Enter number of productions: "))
 grammar = defaultdict(list)
 non_terminals = []
 start_symbol = None
-
-print("Enter productions (Example: E -> T E' | ε )")
-
-for i in range(n):
-    line = input().strip()
-    left, right = line.split("->")
-    left = left.strip()
-
-    if i == 0:
-        start_symbol = left
-
-    non_terminals.append(left)
-
-    for prod in right.split("|"):
-        grammar[left].append(prod.strip().split())
-
-non_terminals = set(non_terminals)
+follow = defaultdict(set)
 
 # ---------- FIND TERMINALS ----------
 terminals = set()
