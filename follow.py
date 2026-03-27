@@ -7,15 +7,7 @@ non_terminals = []
 start_symbol = None
 follow = defaultdict(set)
 
-# ---------- FIND TERMINALS ----------
-terminals = set()
-for prods in grammar.values():
-    for prod in prods:
-        for symbol in prod:
-            if symbol not in non_terminals and symbol != 'ε':
-                terminals.add(symbol)
 
-terminals.add('$')
 
 # ---------- FIRST ----------
 first = defaultdict(set)
